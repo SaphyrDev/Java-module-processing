@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile 'Directory:Directory:0.1.0'
+    compile project(':Java-nio-directory')
 }
 
 jar {

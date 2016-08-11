@@ -76,4 +76,9 @@ public class ModuleFactory {
     public void setOnUnload(ModuleEvent<ModuleUnloaded> event) {
         this.unloadEvents.add(event);
     }
+
+    public ArrayList<Module> getHandledPlugin() {
+        return this.modules;
+    }
+
 }

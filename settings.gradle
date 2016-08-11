@@ -1,0 +1,9 @@
+rootProject.name = 'ModuleProcessor'
+
+String[] dependency = [
+        'Java-nio-directory'
+]
+
+dependency.each {
+    includeFlat it
+}

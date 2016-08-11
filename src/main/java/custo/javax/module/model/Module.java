@@ -14,7 +14,7 @@ import java.util.jar.JarFile;
  */
 public class Module {
     private Path path = null;
-    private final HashMap<String, String> properties = new HashMap<>();
+    private final HashMap<String, Object> properties = new HashMap<>();
     private ClassLoaderUnloadable loader;// = (ClassLoaderUnloadable) ClassLoaderUnloadable.newInstance(new URL[]{this.path.toUri().toURL()}, Module.class.getClassLoader());
 
     public Module(JarFile jarFile) throws IOException {
@@ -32,7 +32,7 @@ public class Module {
 
 
 
-    public HashMap<String, String> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
