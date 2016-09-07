@@ -6,6 +6,9 @@ import custo.javax.module.event.type.ModuleRegistered;
 import custo.javax.module.event.type.ModuleUnregistered;
 import custo.javax.module.event.type.ModuleUnloaded;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -28,6 +31,17 @@ public class ModuleFactory {
     public void unregister(Module module) {
         this.deleteEvents.forEach(event -> event.onEvent(new ModuleUnregistered(module)));
         this.modules.remove(module);
+    }
+
+    public Module getModuleByPath(Path modulePath) {
+        final Module[] module2Find = {null};
+        modules.forEach(module -> {
+            if (Paths.get(module.getJarFile().toString()).equals(modulePath)) {
+                module2Find[0] = module;
+                return;
+            }
+        });
+        return module2Find[0];
     }
 
     /**
